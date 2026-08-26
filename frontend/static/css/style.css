@@ -179,6 +179,18 @@ a {
         width: 250px;
         height: 250px;
     }
+    .education-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.education-year {
+    padding-top: 0;
+}
+
+.education-card {
+    padding: 25px;
+}
 }
 
 /* ---------- Section Heading ---------- */
@@ -273,6 +285,13 @@ a {
     }
     .skills-grid {
     grid-template-columns: 1fr;
+    .projects-grid {
+    grid-template-columns: 1fr;
+}
+
+.project-image {
+    height: 200px;
+}
 }
 }
 
@@ -312,4 +331,156 @@ a {
     border: 1px solid #ddd;
     border-radius: 30px;
     font-size: 14px;
+}
+
+/* ---------- Projects ---------- */
+
+.projects-section {
+    padding: 120px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Project image */
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+}
+
+
+/* Project content */
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+
+/* Technologies */
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.project-tech span {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+
+/* Links */
+
+.project-links {
+    display: flex;
+    gap: 20px;
+}
+
+.project-links a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ---------- Education ---------- */
+
+.education-section {
+    padding: 120px 0;
+    background: #f8f8f8;
+}
+
+.education-timeline {
+    max-width: 900px;
+    margin: auto;
+}
+
+.education-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 35px;
+    margin-bottom: 30px;
+}
+
+.education-year {
+    padding-top: 25px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.education-card {
+    padding: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+
+.education-card h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.education-card h4 {
+    font-size: 17px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.education-card p {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.education-status {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 13px;
 }
