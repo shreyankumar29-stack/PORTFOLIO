@@ -3,8 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 import os
-import smtplib
-from email.message import EmailMessage
+import resend
 
 from dotenv import load_dotenv
 
@@ -15,8 +14,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
-EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD")
+
+resend.api_key = RESEND_API_KEY
 
 
 # =========================================================
@@ -172,57 +173,52 @@ def submit_contact(
     try:
 
         # -------------------------------------------------
-        # CREATE EMAIL
+        # EMAIL CONTENT
         # -------------------------------------------------
 
-        email_message = EmailMessage()
+        email_params = {
 
-        email_message["From"] = EMAIL_ADDRESS
-        email_message["To"] = EMAIL_ADDRESS
-        email_message["Reply-To"] = email
+            "from": "onboarding@resend.dev",
 
-        email_message["Subject"] = (
-            f"Portfolio Contact: {subject}"
-        )
+            "to": [EMAIL_ADDRESS],
 
-        email_message.set_content(
-            f"""
-You have received a new message from your portfolio website.
+            "subject": f"Portfolio Contact: {subject}",
 
-Name:
-{name}
+            "reply_to": email,
 
-Email:
-{email}
+            "html": f"""
+            <h2>New Portfolio Contact Message</h2>
 
-Subject:
-{subject}
+            <p>
+                <strong>Name:</strong> {name}
+            </p>
 
-Message:
-{message}
-"""
-        )
+            <p>
+                <strong>Email:</strong> {email}
+            </p>
+
+            <p>
+                <strong>Subject:</strong> {subject}
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>Message:</strong>
+            </p>
+
+            <p>
+                {message}
+            </p>
+            """
+        }
 
 
         # -------------------------------------------------
-        # SEND EMAIL THROUGH GMAIL SMTP
+        # SEND EMAIL USING RESEND
         # -------------------------------------------------
 
-        with smtplib.SMTP(
-            "smtp.gmail.com",
-            587
-        ) as smtp:
-
-            smtp.starttls()
-
-            smtp.login(
-                EMAIL_ADDRESS,
-                EMAIL_APP_PASSWORD
-            )
-
-            smtp.send_message(
-                email_message
-            )
+        resend.Emails.send(email_params)
 
 
         # -------------------------------------------------
