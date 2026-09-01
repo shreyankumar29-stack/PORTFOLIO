@@ -16,13 +16,17 @@
         {% endblock %}
     </title>
 
+
     <!-- Main CSS -->
+
     <link
         rel="stylesheet"
         href="/static/css/style.css"
     >
 
+
     <!-- Favicon -->
+
     <link
         rel="icon"
         type="image/png"
@@ -35,7 +39,9 @@
 <body>
 
 
-    <!-- ==================== NAVBAR ==================== -->
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
 
     <header class="navbar">
 
@@ -83,15 +89,36 @@
             </nav>
 
 
-            <!-- Resume -->
+            <!-- Navbar Actions -->
 
-            <a
-                href="/static/resume/Shreyansh_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Resume
-            </a>
+            <div class="navbar-actions">
+
+
+                <!-- Resume -->
+
+                <a
+                    href="/static/resume/Shreyansh_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resume-link"
+                >
+                    Resume
+                </a>
+
+
+                <!-- Theme Toggle -->
+
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+
+            </div>
 
 
         </div>
@@ -99,7 +126,10 @@
     </header>
 
 
-    <!-- ==================== PAGE CONTENT ==================== -->
+
+    <!-- =====================================================
+         PAGE CONTENT
+         ===================================================== -->
 
     <main>
 
@@ -110,7 +140,10 @@
     </main>
 
 
-    <!-- ==================== FOOTER ==================== -->
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
     <footer>
 
@@ -119,6 +152,14 @@
         </p>
 
     </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="/static/js/script.js"></script>
 
 
 </body>
