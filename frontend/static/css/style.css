@@ -2827,3 +2827,64 @@ body.dark-mode .project-detail-card {
     }
 
 }
+
+/* =========================================================
+   CONTACT MESSAGE
+   ========================================================= */
+
+.contact-message {
+    max-width: 1000px;
+    margin: 0 auto 30px;
+
+    padding: 16px 22px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border: 1px solid var(--border);
+
+    animation: contactMessageIn 0.4s ease;
+}
+
+
+/* SUCCESS */
+
+.contact-message.success {
+    background: rgba(34, 197, 94, 0.12);
+
+    border-color: rgba(34, 197, 94, 0.35);
+
+    color: #22c55e;
+}
+
+
+/* ERROR */
+
+.contact-message.error {
+    background: rgba(239, 68, 68, 0.12);
+
+    border-color: rgba(239, 68, 68, 0.35);
+
+    color: #ef4444;
+}
+
+
+/* ANIMATION */
+
+@keyframes contactMessageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

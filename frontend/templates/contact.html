@@ -16,6 +16,8 @@ Contact | Shreyansh
     <div class="container">
 
 
+        <!-- ==================== SECTION HEADING ==================== -->
+
         <div class="section-heading">
 
             <p class="section-subtitle">
@@ -35,6 +37,29 @@ Contact | Shreyansh
 
         </div>
 
+
+        <!-- ==================== SUCCESS / ERROR MESSAGE ==================== -->
+
+        {% if message %}
+
+        <div
+            class="contact-message {% if success %}success{% else %}error{% endif %}"
+        >
+
+            {% if success %}
+                ✓
+            {% else %}
+                ✕
+            {% endif %}
+
+            {{ message }}
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ==================== CONTACT CONTAINER ==================== -->
 
         <div class="contact-container">
 
@@ -57,7 +82,7 @@ Contact | Shreyansh
                 </p>
 
 
-                <!-- EMAIL -->
+                <!-- ================= EMAIL ================= -->
 
                 <div class="contact-item">
 
@@ -82,7 +107,7 @@ Contact | Shreyansh
                 </div>
 
 
-                <!-- PHONE -->
+                <!-- ================= PHONE ================= -->
 
                 <div class="contact-item">
 
@@ -105,7 +130,7 @@ Contact | Shreyansh
                 </div>
 
 
-                <!-- GITHUB -->
+                <!-- ================= GITHUB ================= -->
 
                 <div class="contact-item">
 
@@ -132,7 +157,7 @@ Contact | Shreyansh
                 </div>
 
 
-                <!-- LINKEDIN -->
+                <!-- ================= LINKEDIN ================= -->
 
                 <div class="contact-item">
 
@@ -159,7 +184,7 @@ Contact | Shreyansh
                 </div>
 
 
-                <!-- LOCATION -->
+                <!-- ================= LOCATION ================= -->
 
                 <div class="contact-item">
 
@@ -197,7 +222,7 @@ Contact | Shreyansh
                 >
 
 
-                    <!-- NAME -->
+                    <!-- ================= NAME ================= -->
 
                     <div class="form-group">
 
@@ -216,7 +241,7 @@ Contact | Shreyansh
                     </div>
 
 
-                    <!-- EMAIL -->
+                    <!-- ================= EMAIL ================= -->
 
                     <div class="form-group">
 
@@ -235,7 +260,7 @@ Contact | Shreyansh
                     </div>
 
 
-                    <!-- SUBJECT -->
+                    <!-- ================= SUBJECT ================= -->
 
                     <div class="form-group">
 
@@ -254,7 +279,7 @@ Contact | Shreyansh
                     </div>
 
 
-                    <!-- MESSAGE -->
+                    <!-- ================= MESSAGE ================= -->
 
                     <div class="form-group">
 
@@ -273,7 +298,7 @@ Contact | Shreyansh
                     </div>
 
 
-                    <!-- SUBMIT -->
+                    <!-- ================= SUBMIT ================= -->
 
                     <button
                         type="submit"

@@ -1,6 +1,22 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+import os
+import smtplib
+from email.message import EmailMessage
+
+from dotenv import load_dotenv
+
+
+# =========================================================
+# LOAD ENVIRONMENT VARIABLES
+# =========================================================
+
+load_dotenv()
+
+EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
+EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD")
 
 
 # =========================================================
@@ -128,7 +144,7 @@ def facemark_project(request: Request):
 
 
 # =========================================================
-# CONTACT
+# CONTACT - GET
 # =========================================================
 
 @app.get("/contact")
@@ -138,6 +154,114 @@ def contact(request: Request):
         request=request,
         name="contact.html"
     )
+
+
+# =========================================================
+# CONTACT - POST
+# =========================================================
+
+@app.post("/contact")
+def submit_contact(
+    request: Request,
+    name: str = Form(...),
+    email: str = Form(...),
+    subject: str = Form(...),
+    message: str = Form(...)
+):
+
+    try:
+
+        # -------------------------------------------------
+        # CREATE EMAIL
+        # -------------------------------------------------
+
+        email_message = EmailMessage()
+
+        email_message["From"] = EMAIL_ADDRESS
+        email_message["To"] = EMAIL_ADDRESS
+        email_message["Reply-To"] = email
+
+        email_message["Subject"] = (
+            f"Portfolio Contact: {subject}"
+        )
+
+        email_message.set_content(
+            f"""
+You have received a new message from your portfolio website.
+
+Name:
+{name}
+
+Email:
+{email}
+
+Subject:
+{subject}
+
+Message:
+{message}
+"""
+        )
+
+
+        # -------------------------------------------------
+        # SEND EMAIL THROUGH GMAIL SMTP
+        # -------------------------------------------------
+
+        with smtplib.SMTP(
+            "smtp.gmail.com",
+            587
+        ) as smtp:
+
+            smtp.starttls()
+
+            smtp.login(
+                EMAIL_ADDRESS,
+                EMAIL_APP_PASSWORD
+            )
+
+            smtp.send_message(
+                email_message
+            )
+
+
+        # -------------------------------------------------
+        # SUCCESS
+        # -------------------------------------------------
+
+        return templates.TemplateResponse(
+            request=request,
+            name="contact.html",
+            context={
+                "success": True,
+                "message": (
+                    "Your message has been sent successfully!"
+                )
+            }
+        )
+
+
+    except Exception as error:
+
+        print("EMAIL ERROR:")
+        print(error)
+
+
+        # -------------------------------------------------
+        # ERROR
+        # -------------------------------------------------
+
+        return templates.TemplateResponse(
+            request=request,
+            name="contact.html",
+            context={
+                "success": False,
+                "message": (
+                    "Something went wrong. "
+                    "Please try again later."
+                )
+            }
+        )
 
 
 # =========================================================
