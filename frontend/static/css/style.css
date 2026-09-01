@@ -1399,3 +1399,560 @@ footer p {
         margin-top: 40px;
     }
 }
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+
+body {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: pageEnter 0.55s ease forwards;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR HOVER
+   ========================================================= */
+
+.navbar nav a {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.navbar nav a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.about-details div,
+.skill-category,
+.education-card,
+.project-card,
+.contact-info,
+.contact-form-container {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE EFFECT
+   ========================================================= */
+
+.project-image {
+    overflow: hidden;
+}
+
+.project-image img {
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   BUTTON EFFECT
+   ========================================================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    transform: skewX(-20deg);
+
+    transition: left 0.5s ease;
+}
+
+.btn:hover::after {
+    left: 130%;
+}
+
+
+/* =========================================================
+   SKILL BADGE EFFECT
+   ========================================================= */
+
+.skill-list span {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.skill-list span:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.15);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* =========================================================
+   PAGE EXIT
+   ========================================================= */
+
+body.page-exit {
+    animation: pageExit 0.25s ease forwards;
+}
+
+@keyframes pageExit {
+
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+}
+
+/* =========================================================
+   ADVANCED PORTFOLIO ANIMATIONS
+   ========================================================= */
+
+/* ---------- Page Entry ---------- */
+
+body {
+    animation: pageEnter 0.7s ease both;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------- Page Exit ---------- */
+
+body.page-exit {
+    animation: pageExit 0.3s ease forwards;
+}
+
+@keyframes pageExit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   HERO ANIMATION
+   ========================================================= */
+
+.hero-content {
+    animation: heroContent 1s ease 0.15s both;
+}
+
+@keyframes heroContent {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Hero background glow */
+
+.hero::before {
+    animation: floatingCard 7s ease-in-out infinite;
+}
+
+.hero::after {
+    animation: floatingCardReverse 8s ease-in-out infinite;
+}
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform: rotate(-6deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-3deg) translateY(-18px);
+    }
+}
+
+@keyframes floatingCardReverse {
+
+    0%,
+    100% {
+        transform: rotate(7deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(4deg) translateY(18px);
+    }
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading {
+    animation: headingReveal 0.8s ease both;
+}
+
+@keyframes headingReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ABOUT CARDS
+   ========================================================= */
+
+.about-details div {
+    animation: cardReveal 0.7s ease both;
+}
+
+.about-details div:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.about-details div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.about-details div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+/* =========================================================
+   SKILLS ANIMATION
+   ========================================================= */
+
+.skill-category {
+    animation: cardReveal 0.7s ease both;
+}
+
+.skill-category:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-category:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-category:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-category:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+
+@keyframes cardReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SKILL BADGES
+   ========================================================= */
+
+.skill-list span {
+    animation: badgeAppear 0.5s ease both;
+}
+
+.skill-list span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-list span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.skill-list span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.skill-list span:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.skill-list span:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+@keyframes badgeAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   EDUCATION ANIMATION
+   ========================================================= */
+
+.education-item {
+    animation: educationReveal 0.8s ease both;
+}
+
+.education-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.education-item:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.education-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes educationReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   PROJECT ANIMATION
+   ========================================================= */
+
+.project-card {
+    animation: projectReveal 0.8s ease both;
+}
+
+.project-card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+@keyframes projectReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   CONTACT ANIMATION
+   ========================================================= */
+
+.contact-info {
+    animation: contactLeft 0.8s ease both;
+    animation-delay: 0.1s;
+}
+
+.contact-form-container {
+    animation: contactRight 0.8s ease both;
+    animation-delay: 0.25s;
+}
+
+@keyframes contactLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes contactRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+   ========================================================= */
+
+.btn {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   THEME BUTTON
+   ========================================================= */
+
+.theme-toggle {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    box-shadow:
+        0 0 18px rgba(59, 130, 246, 0.25);
+}
+
+
+/* =========================================================
+   CARD GLOW
+   ========================================================= */
+
+.project-card:hover,
+.skill-category:hover,
+.about-details div:hover,
+.education-card:hover,
+.contact-info:hover,
+.contact-form-container:hover {
+    box-shadow:
+        0 18px 45px var(--shadow);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
