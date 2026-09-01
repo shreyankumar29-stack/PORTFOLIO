@@ -1,4 +1,6 @@
-/* ---------- Global ---------- */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
     margin: 0;
@@ -13,10 +15,13 @@ html {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    color: #111;
+    background: #fff;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .container {
@@ -26,15 +31,19 @@ a {
 }
 
 
-/* ---------- Navbar ---------- */
+/* =========================================================
+   NAVBAR
+========================================================= */
 
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     padding: 20px 0;
     background: white;
     z-index: 1000;
+    border-bottom: 1px solid #eee;
 }
 
 .navbar-container {
@@ -50,21 +59,39 @@ a {
 
 .navbar nav {
     display: flex;
+    align-items: center;
     gap: 30px;
 }
 
 .navbar nav a {
     font-size: 16px;
+    transition: opacity 0.2s ease;
+}
+
+.navbar nav a:hover {
+    opacity: 0.6;
 }
 
 
-/* ---------- Hero ---------- */
+/* Resume link */
+
+.navbar-container > a:last-child {
+    font-weight: bold;
+    border: 1px solid #111;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 .hero-container {
@@ -104,6 +131,7 @@ a {
 .hero-buttons {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -111,6 +139,12 @@ a {
     padding: 12px 24px;
     border-radius: 6px;
     font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
 }
 
 .primary-btn {
@@ -121,10 +155,13 @@ a {
 .secondary-btn {
     color: #111;
     border: 1px solid #111;
+    background: white;
 }
 
 
-/* ---------- Profile ---------- */
+/* =========================================================
+   PROFILE
+========================================================= */
 
 .hero-image {
     display: flex;
@@ -143,57 +180,9 @@ a {
 }
 
 
-/* ---------- Temporary Sections ---------- */
-
-.placeholder-section {
-    min-height: 70vh;
-    padding: 100px 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 768px) {
-
-    .navbar nav {
-        display: none;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .profile-placeholder {
-        width: 250px;
-        height: 250px;
-    }
-    .education-item {
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-.education-year {
-    padding-top: 0;
-}
-
-.education-card {
-    padding: 25px;
-}
-}
-
-/* ---------- Section Heading ---------- */
+/* =========================================================
+   COMMON SECTION HEADING
+========================================================= */
 
 .section-heading {
     text-align: center;
@@ -211,7 +200,9 @@ a {
 }
 
 
-/* ---------- About ---------- */
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about-section {
     padding: 120px 0;
@@ -264,38 +255,10 @@ a {
     margin-bottom: 8px;
 }
 
-@media (max-width: 768px) {
 
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .about-image img {
-        max-width: 280px;
-    }
-
-    .section-heading h2 {
-        font-size: 34px;
-    }
-
-    .about-details {
-        grid-template-columns: 1fr;
-    }
-    .skills-grid {
-    grid-template-columns: 1fr;
-    .projects-grid {
-    grid-template-columns: 1fr;
-}
-
-.project-image {
-    height: 200px;
-}
-}
-}
-
-/* ---------- Skills ---------- */
+/* =========================================================
+   SKILLS
+========================================================= */
 
 .skills-section {
     padding: 120px 0;
@@ -313,6 +276,12 @@ a {
     background: white;
     border: 1px solid #e5e5e5;
     border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .skill-category h3 {
@@ -333,7 +302,75 @@ a {
     font-size: 14px;
 }
 
-/* ---------- Projects ---------- */
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-section {
+    padding: 120px 0;
+    background: #f8f8f8;
+}
+
+.education-timeline {
+    max-width: 900px;
+    margin: auto;
+}
+
+.education-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 35px;
+    margin-bottom: 30px;
+}
+
+.education-year {
+    padding-top: 25px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.education-card {
+    padding: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.education-card h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.education-card h4 {
+    font-size: 17px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.education-card p {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.education-status {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
 
 .projects-section {
     padding: 120px 0;
@@ -341,7 +378,7 @@ a {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -363,14 +400,16 @@ a {
 
 .project-image {
     width: 100%;
-    height: 220px;
+    height: 250px;
     overflow: hidden;
+    background: #f2f2f2;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .project-placeholder {
@@ -380,6 +419,7 @@ a {
     justify-content: center;
     align-items: center;
     background: #f2f2f2;
+    color: #777;
 }
 
 
@@ -429,58 +469,313 @@ a {
     text-decoration: underline;
 }
 
-/* ---------- Education ---------- */
+.project-links a:hover {
+    opacity: 0.6;
+}
 
-.education-section {
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
     padding: 120px 0;
     background: #f8f8f8;
 }
 
-.education-timeline {
-    max-width: 900px;
-    margin: auto;
+.contact-intro {
+    max-width: 600px;
+    margin: 15px auto 0;
+    font-size: 16px;
 }
 
-.education-item {
+.contact-container {
     display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 35px;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 60px auto 0;
 }
 
-.education-year {
-    padding-top: 25px;
-    font-weight: bold;
-    font-size: 15px;
-}
 
-.education-card {
-    padding: 30px;
+/* Contact information */
+
+.contact-info {
+    padding: 35px;
     background: white;
-    border: 1px solid #e5e5e5;
     border-radius: 15px;
+    border: 1px solid #e5e5e5;
 }
 
-.education-card h3 {
-    font-size: 23px;
-    margin-bottom: 8px;
-}
-
-.education-card h4 {
-    font-size: 17px;
-    font-weight: normal;
+.contact-info h3 {
+    font-size: 28px;
     margin-bottom: 15px;
 }
 
-.education-card p {
-    font-size: 15px;
-    margin-bottom: 18px;
+.contact-info > p {
+    margin-bottom: 35px;
 }
 
-.education-status {
-    display: inline-block;
-    padding: 6px 13px;
-    border-radius: 20px;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #ddd;
-    font-size: 13px;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contact-item a,
+.contact-item span {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* Contact form */
+
+.contact-form-container {
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #111;
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TEMPORARY SECTIONS
+========================================================= */
+
+.placeholder-section {
+    min-height: 70vh;
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar-container > a:last-child {
+        padding: 7px 12px;
+        font-size: 14px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    /* Profile */
+
+    .profile-placeholder {
+        width: 250px;
+        height: 250px;
+    }
+
+
+    /* Section heading */
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    /* About */
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 280px;
+    }
+
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Skills */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Education */
+
+    .education-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .education-year {
+        padding-top: 0;
+    }
+
+    .education-card {
+        padding: 25px;
+    }
+
+
+    /* Projects */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+
+    /* Contact */
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        padding: 25px;
+    }
+
 }

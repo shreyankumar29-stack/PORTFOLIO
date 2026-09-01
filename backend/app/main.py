@@ -10,6 +10,7 @@ app = FastAPI(
 )
 
 
+# Static files
 app.mount(
     "/static",
     StaticFiles(directory="frontend/static"),
@@ -17,9 +18,13 @@ app.mount(
 )
 
 
-templates = Jinja2Templates(directory="frontend/templates")
+# Templates
+templates = Jinja2Templates(
+    directory="frontend/templates"
+)
 
 
+# Home page
 @app.get("/")
 def home(request: Request):
     return templates.TemplateResponse(
@@ -28,6 +33,9 @@ def home(request: Request):
     )
 
 
+# Health check
 @app.get("/health")
 def health_check():
-    return {"status": "healthy"}
+    return {
+        "status": "healthy"
+    }
