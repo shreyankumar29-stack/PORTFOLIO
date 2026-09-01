@@ -1,0 +1,620 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+FaceMark | Shreyansh
+{% endblock %}
+
+
+{% block content %}
+
+<section class="facemark-section">
+
+    <div class="container">
+
+        <!-- ==================== HEADER ==================== -->
+
+        <div class="facemark-header">
+
+            <a href="/projects" class="project-back">
+                ← Back to Projects
+            </a>
+
+            <p class="section-subtitle">
+                AI-POWERED CLASSROOM ATTENDANCE
+            </p>
+
+            <h1>
+                FaceMark
+            </h1>
+
+            <p>
+                Explore the project through interactive flashcards.
+            </p>
+
+        </div>
+
+
+        <!-- ==================== FLASHCARD AREA ==================== -->
+
+        <div class="flashcard-wrapper">
+
+            <div
+                class="flashcard"
+                id="flashcard"
+            >
+
+                <div class="flashcard-inner">
+
+
+                    <!-- ================= FRONT ================= -->
+
+                    <div class="flashcard-front">
+
+                        <span class="flashcard-number">
+                            01
+                        </span>
+
+                        <p class="flashcard-label">
+                            PROJECT OVERVIEW
+                        </p>
+
+                        <h2>
+                            Executive Summary
+                        </h2>
+
+                        <p>
+                            FaceMark is an AI-powered classroom
+                            attendance system designed to automate
+                            attendance management while keeping the
+                            teacher in control of the final decision.
+                        </p>
+
+                        <span class="flashcard-hint">
+                            Click card to explore →
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================= BACK ================= -->
+
+                    <div class="flashcard-back">
+
+                        <span class="flashcard-number">
+                            01
+                        </span>
+
+                        <h2>
+                            Executive Summary
+                        </h2>
+
+                        <p>
+                            FaceMark combines classroom photography,
+                            face recognition and teacher verification
+                            into a single attendance workflow.
+                        </p>
+
+                        <p>
+                            The system is designed so that AI assists
+                            with recognition while the teacher retains
+                            final authority over attendance decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== PROGRESS ==================== -->
+
+        <div class="flashcard-progress">
+
+            <span id="current-card">
+                1
+            </span>
+
+            <span>
+                /
+            </span>
+
+            <span id="total-cards">
+                10
+            </span>
+
+        </div>
+
+
+        <!-- ==================== CONTROLS ==================== -->
+
+        <div class="flashcard-controls">
+
+            <button
+                id="previous-card"
+                class="flashcard-btn"
+                type="button"
+            >
+                ← Previous
+            </button>
+
+
+            <button
+                id="flip-card"
+                class="flashcard-btn primary-flashcard-btn"
+                type="button"
+            >
+                Flip Card
+            </button>
+
+
+            <button
+                id="next-card"
+                class="flashcard-btn"
+                type="button"
+            >
+                Next →
+            </button>
+
+        </div>
+
+
+        <!-- ==================== CARD TOPICS ==================== -->
+
+        <div class="flashcard-topics">
+
+            <button
+                class="topic-dot active"
+                data-card="0"
+            >
+                Overview
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="1"
+            >
+                Principle
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="2"
+            >
+                Problem
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="3"
+            >
+                Workflow
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="4"
+            >
+                Recognition
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="5"
+            >
+                Second Photo
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="6"
+            >
+                Verification
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="7"
+            >
+                Architecture
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="8"
+            >
+                Security
+            </button>
+
+            <button
+                class="topic-dot"
+                data-card="9"
+            >
+                MVP
+            </button>
+
+        </div>
+
+
+        <!-- ==================== GITHUB ==================== -->
+
+        <div class="facemark-actions">
+
+            <a
+                href="https://github.com/shreyankumar29-stack/facemark"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn primary-btn"
+            >
+                View on GitHub
+            </a>
+
+            <a
+                href="/projects"
+                class="btn secondary-btn"
+            >
+                ← Back to Projects
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FLASHCARD DATA
+     ========================================================= -->
+
+<script>
+
+const flashcards = [
+
+    {
+        number: "01",
+        label: "PROJECT OVERVIEW",
+        title: "Executive Summary",
+
+        front:
+            "FaceMark is an AI-powered classroom attendance system designed to automate attendance management while keeping the teacher in control of the final decision.",
+
+        back:
+            "FaceMark combines classroom photography, face recognition and teacher verification into a single attendance workflow. AI assists with recognition while the teacher retains final authority."
+    },
+
+
+    {
+        number: "02",
+        label: "CORE PRINCIPLE",
+        title: "AI + Human Verification",
+
+        front:
+            "AI performs recognition. The teacher makes the final decision.",
+
+        back:
+            "FaceMark does not silently convert uncertain recognition into attendance decisions. Confident, uncertain, unknown and not-detected results remain distinguishable for teacher review."
+    },
+
+
+    {
+        number: "03",
+        label: "THE PROBLEM",
+        title: "Why FaceMark?",
+
+        front:
+            "Manual classroom attendance can be repetitive, time-consuming and prone to mistakes.",
+
+        back:
+            "FaceMark aims to reduce manual attendance work, reduce counting errors and minimize disruption to classroom time while maintaining reliable attendance records."
+    },
+
+
+    {
+        number: "04",
+        label: "ATTENDANCE WORKFLOW",
+        title: "How It Works",
+
+        front:
+            "Start a session → capture a classroom photograph → upload → recognize faces → review → finalize.",
+
+        back:
+            "The teacher logs in, selects the class, subject and date, starts an attendance session, uploads a photograph, reviews recognition results and finally confirms or corrects attendance before finalization."
+    },
+
+
+    {
+        number: "05",
+        label: "RECOGNITION",
+        title: "Recognition States",
+
+        front:
+            "Not every detected face should automatically become a student match.",
+
+        back:
+            "FaceMark distinguishes between PRESENT, REVIEW, UNKNOWN, NOT DETECTED and ABSENT states. Uncertain results can be reviewed instead of being silently accepted."
+    },
+
+
+    {
+        number: "06",
+        label: "SECOND PHOTOGRAPH",
+        title: "Supplementary Evidence",
+
+        front:
+            "A second photograph is used only when unresolved faces remain after the first photograph.",
+
+        back:
+            "The second photograph supplements the first result instead of replacing it. Duplicate recognition is prevented and conflicting evidence is flagged for teacher review."
+    },
+
+
+    {
+        number: "07",
+        label: "TEACHER VERIFICATION",
+        title: "Human-in-the-Loop",
+
+        front:
+            "AI proposes recognition. The teacher retains final authority.",
+
+        back:
+            "The teacher can confirm recognized students, correct incorrect matches, assign unknown faces, manually mark students present or absent and resolve uncertain results before finalizing attendance."
+    },
+
+
+    {
+        number: "08",
+        label: "SYSTEM ARCHITECTURE",
+        title: "Technical Architecture",
+
+        front:
+            "Teacher UI → Backend API → Face Recognition → PostgreSQL",
+
+        back:
+            "The system is structured around a teacher-facing interface, backend APIs for authentication/classes/sessions/uploads/results, a face-recognition layer for detection and matching, and PostgreSQL for application data."
+    },
+
+
+    {
+        number: "09",
+        label: "SECURITY & PRIVACY",
+        title: "Protecting Biometric Data",
+
+        front:
+            "Face data is sensitive biometric information and must be protected.",
+
+        back:
+            "The specification emphasizes secure authentication, role-based authorization, secure uploads, protected secrets, minimized biometric data, restricted enrollment access and defined retention/deletion policies."
+    },
+
+
+    {
+        number: "10",
+        label: "MVP & FUTURE",
+        title: "Project Scope",
+
+        front:
+            "The MVP focuses on authentication, classes, enrollment, attendance sessions, recognition, teacher review and attendance history.",
+
+        back:
+            "Future scope includes liveness detection, multi-camera support, native mobile applications, advanced analytics, timetable integration, notifications, a student portal and offline processing."
+    }
+
+];
+
+
+const flashcard = document.getElementById("flashcard");
+
+const previousButton =
+    document.getElementById("previous-card");
+
+const nextButton =
+    document.getElementById("next-card");
+
+const flipButton =
+    document.getElementById("flip-card");
+
+const currentCard =
+    document.getElementById("current-card");
+
+const totalCards =
+    document.getElementById("total-cards");
+
+const topicButtons =
+    document.querySelectorAll(".topic-dot");
+
+
+let currentIndex = 0;
+
+
+/* =========================================================
+   UPDATE CARD
+   ========================================================= */
+
+function updateCard() {
+
+    const card = flashcards[currentIndex];
+
+    flashcard.classList.remove("flipped");
+
+    setTimeout(() => {
+
+        document.querySelector(".flashcard-front .flashcard-number")
+            .textContent = card.number;
+
+        document.querySelector(".flashcard-front .flashcard-label")
+            .textContent = card.label;
+
+        document.querySelector(".flashcard-front h2")
+            .textContent = card.title;
+
+        document.querySelector(".flashcard-front > p:nth-of-type(2)")
+            .textContent = card.front;
+
+
+        document.querySelector(".flashcard-back .flashcard-number")
+            .textContent = card.number;
+
+        document.querySelector(".flashcard-back h2")
+            .textContent = card.title;
+
+        document.querySelector(".flashcard-back p:nth-of-type(1)")
+            .textContent = card.back;
+
+        currentCard.textContent =
+            currentIndex + 1;
+
+    }, 150);
+
+
+    topicButtons.forEach((button, index) => {
+
+        button.classList.toggle(
+            "active",
+            index === currentIndex
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   FLIP
+   ========================================================= */
+
+function flipCard() {
+
+    flashcard.classList.toggle("flipped");
+
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+function nextCard() {
+
+    currentIndex++;
+
+    if (currentIndex >= flashcards.length) {
+        currentIndex = 0;
+    }
+
+    updateCard();
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+   ========================================================= */
+
+function previousCard() {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = flashcards.length - 1;
+    }
+
+    updateCard();
+
+}
+
+
+/* =========================================================
+   BUTTON EVENTS
+   ========================================================= */
+
+flipButton.addEventListener(
+    "click",
+    flipCard
+);
+
+nextButton.addEventListener(
+    "click",
+    nextCard
+);
+
+previousButton.addEventListener(
+    "click",
+    previousCard
+);
+
+
+/* =========================================================
+   CARD CLICK
+   ========================================================= */
+
+flashcard.addEventListener(
+    "click",
+    flipCard
+);
+
+
+/* =========================================================
+   TOPIC BUTTONS
+   ========================================================= */
+
+topicButtons.forEach((button) => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            currentIndex =
+                Number(button.dataset.card);
+
+            updateCard();
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   KEYBOARD CONTROLS
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "ArrowRight") {
+            nextCard();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousCard();
+        }
+
+        if (event.key === " ") {
+
+            event.preventDefault();
+
+            flipCard();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+totalCards.textContent =
+    flashcards.length;
+
+updateCard();
+
+</script>
+
+{% endblock %}

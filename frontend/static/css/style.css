@@ -1956,3 +1956,874 @@ body.page-exit {
     }
 
 }
+
+/* =========================================================
+   PROJECT CARD INTERACTION
+   ========================================================= */
+
+.project-card {
+    cursor: pointer;
+    position: relative;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.015);
+
+    box-shadow:
+        0 20px 50px var(--shadow);
+
+    border-color: var(--primary);
+}
+
+.project-card::before {
+    content: "View Project →";
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    opacity: 0;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 5;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   PROJECT DETAIL PAGE
+   ========================================================= */
+
+.project-detail-section {
+    min-height: 100vh;
+    padding: 150px 0 100px;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(37, 99, 235, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(124, 58, 237, 0.10),
+            transparent 30%
+        );
+}
+
+.project-back {
+    margin-bottom: 35px;
+}
+
+.project-back a {
+    color: var(--primary);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.project-back a:hover {
+    color: var(--secondary);
+}
+
+.project-detail-header {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.project-detail-header h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary),
+        var(--pink)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.project-detail-intro {
+    max-width: 700px;
+    margin: auto;
+
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.project-detail-image {
+    max-width: 1000px;
+    height: 450px;
+
+    margin: 60px auto;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    box-shadow:
+        0 20px 50px var(--shadow);
+}
+
+.project-detail-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.project-detail-image:hover img {
+    transform: scale(1.03);
+}
+
+.project-detail-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.project-detail-card {
+    padding: 32px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px var(--shadow);
+
+    transition: 0.3s ease;
+}
+
+body.dark-mode .project-detail-card {
+    background: rgba(17, 24, 39, 0.92);
+}
+
+.project-detail-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px var(--shadow);
+}
+
+.project-detail-card h2 {
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+    color: var(--text);
+}
+
+.project-detail-card p {
+    color: var(--muted);
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+.project-feature-list {
+    padding-left: 20px;
+}
+
+.project-feature-list li {
+    color: var(--muted);
+
+    margin-bottom: 12px;
+}
+
+.project-feature-list li::marker {
+    color: var(--primary);
+}
+
+.project-technologies {
+    max-width: 1000px;
+
+    margin: 30px auto 0;
+}
+
+.project-technologies .project-tech {
+    margin-bottom: 0;
+}
+
+.project-detail-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+
+    .project-detail-section {
+        padding-top: 130px;
+    }
+
+    .project-detail-header h1 {
+        font-size: 38px;
+    }
+
+    .project-detail-intro {
+        font-size: 16px;
+    }
+
+    .project-detail-image {
+        height: 250px;
+
+        margin: 40px auto;
+    }
+
+    .project-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   FACEMARK FLASHCARDS
+   ========================================================= */
+
+.facemark-section {
+    min-height: 100vh;
+    padding: 150px 0 100px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(37, 99, 235, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(124, 58, 237, 0.12),
+            transparent 30%
+        );
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.facemark-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.facemark-header .project-back {
+    display: inline-block;
+    margin-bottom: 35px;
+
+    color: var(--primary);
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.facemark-header .project-back:hover {
+    color: var(--secondary);
+    transform: translateX(-4px);
+}
+
+.facemark-header h1 {
+    font-size: 64px;
+    line-height: 1;
+
+    margin-bottom: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary),
+        var(--pink)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.facemark-header > p:last-child {
+    color: var(--muted);
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FLASHCARD WRAPPER
+   ========================================================= */
+
+.flashcard-wrapper {
+    width: 100%;
+    max-width: 850px;
+
+    height: 500px;
+
+    margin: auto;
+
+    perspective: 1400px;
+}
+
+
+/* =========================================================
+   FLASHCARD
+   ========================================================= */
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    perspective: 1400px;
+}
+
+.flashcard-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.7s cubic-bezier(
+            0.4,
+            0.2,
+            0.2,
+            1
+        );
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   FRONT + BACK
+   ========================================================= */
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 24px;
+
+    border: 1px solid var(--border);
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px var(--shadow);
+}
+
+
+/* =========================================================
+   FRONT
+   ========================================================= */
+
+.flashcard-front {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(124, 58, 237, 0.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(37, 99, 235, 0.18),
+            transparent 30%
+        ),
+        var(--surface);
+}
+
+.flashcard-front::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 58, 237, 0.08);
+
+    filter: blur(2px);
+}
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+.flashcard-back {
+    transform: rotateY(180deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.12),
+            rgba(124, 58, 237, 0.12)
+        ),
+        var(--surface);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+   ========================================================= */
+
+.flashcard-number {
+    position: absolute;
+
+    top: 30px;
+    right: 35px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--primary);
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CARD LABEL
+   ========================================================= */
+
+.flashcard-label {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.flashcard-front h2,
+.flashcard-back h2 {
+    position: relative;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 22px;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
+
+.flashcard-front > p:nth-of-type(2),
+.flashcard-back p {
+    position: relative;
+
+    max-width: 680px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   CLICK HINT
+   ========================================================= */
+
+.flashcard-hint {
+    position: absolute;
+
+    bottom: 30px;
+    left: 55px;
+
+    font-size: 13px;
+
+    color: var(--primary);
+
+    font-weight: 600;
+
+    animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.flashcard:hover .flashcard-front,
+.flashcard:hover .flashcard-back {
+    border-color: rgba(59, 130, 246, 0.45);
+
+    box-shadow:
+        0 30px 80px var(--shadow),
+        0 0 35px rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.flashcard-progress {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--muted);
+}
+
+#current-card {
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.flashcard-controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+.flashcard-btn {
+    padding: 11px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.flashcard-btn:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+
+    box-shadow:
+        0 8px 20px var(--shadow);
+}
+
+.primary-flashcard-btn {
+    color: #fff;
+
+    border-color: transparent;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+}
+
+.primary-flashcard-btn:hover {
+    color: #fff;
+
+    border-color: transparent;
+
+    box-shadow:
+        0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+
+.flashcard-topics {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    max-width: 850px;
+
+    margin: 30px auto 0;
+}
+
+.topic-dot {
+    padding: 8px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.topic-dot:hover {
+    color: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+.topic-dot.active {
+    color: #fff;
+
+    border-color: transparent;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.facemark-actions {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 45px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .facemark-section {
+        padding: 130px 0 70px;
+    }
+
+    .facemark-header h1 {
+        font-size: 48px;
+    }
+
+    .flashcard-wrapper {
+        height: 480px;
+    }
+
+    .flashcard-front,
+    .flashcard-back {
+        padding: 35px;
+    }
+
+    .flashcard-front h2,
+    .flashcard-back h2 {
+        font-size: 30px;
+    }
+
+    .flashcard-front > p:nth-of-type(2),
+    .flashcard-back p {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+    .flashcard-hint {
+        left: 35px;
+    }
+
+    .flashcard-controls {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .facemark-header h1 {
+        font-size: 40px;
+    }
+
+    .flashcard-wrapper {
+        height: 520px;
+    }
+
+    .flashcard-front,
+    .flashcard-back {
+        padding: 28px;
+    }
+
+    .flashcard-number {
+        top: 20px;
+        right: 25px;
+    }
+
+    .flashcard-front h2,
+    .flashcard-back h2 {
+        font-size: 25px;
+    }
+
+    .flashcard-front > p:nth-of-type(2),
+    .flashcard-back p {
+        font-size: 14px;
+    }
+
+    .flashcard-hint {
+        left: 28px;
+        bottom: 22px;
+    }
+
+    .flashcard-btn {
+        padding: 9px 14px;
+    }
+
+}
