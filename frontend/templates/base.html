@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        Shreyansh | Portfolio
+        {% endblock %}
+    </title>
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/images/favicon.png"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================== NAVBAR ==================== -->
+
+    <header class="navbar">
+
+        <div class="container navbar-container">
+
+
+            <!-- Logo -->
+
+            <a
+                href="/"
+                class="logo"
+            >
+                Shreyansh
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/about">
+                    About
+                </a>
+
+                <a href="/skills">
+                    Skills
+                </a>
+
+                <a href="/education">
+                    Education
+                </a>
+
+                <a href="/projects">
+                    Projects
+                </a>
+
+                <a href="/contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <!-- Resume -->
+
+            <a
+                href="/static/resume/Shreyansh_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Resume
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== PAGE CONTENT ==================== -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Shreyansh. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

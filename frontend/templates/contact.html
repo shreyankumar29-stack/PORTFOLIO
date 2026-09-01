@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Contact | Shreyansh
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- ==================== CONTACT ==================== -->
+
+<section class="contact-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p class="section-subtitle">
+                GET IN TOUCH
+            </p>
+
+            <h2>
+                Contact Me
+            </h2>
+
+            <p class="contact-intro">
+
+                Have a question, project idea, or just want
+                to connect? Feel free to reach out to me.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <!-- ================= CONTACT INFORMATION ================= -->
+
+            <div class="contact-info">
+
+
+                <h3>
+                    Let's Connect
+                </h3>
+
+
+                <p>
+
+                    I am always open to discussing new projects,
+                    opportunities, ideas, and collaborations.
+
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <a
+                            href="mailto:shreyan.kumar29@gmail.com"
+                        >
+                            shreyan.kumar29@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <a href="tel:+91-9889903079">
+                            +91-9889903079
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GITHUB -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        Git
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            GitHub
+                        </strong>
+
+                        <a
+                            href="https://github.com/shreyankumar29-stack"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            github.com/shreyankumar29-stack
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LINKEDIN -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        in
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            LinkedIn
+                        </strong>
+
+                        <a
+                            href="https://www.linkedin.com/in/shreyansh-kumar1610/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            linkedin.com/in/shreyansh-kumar1610
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <span>
+                            India
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================= CONTACT FORM ================= -->
+
+            <div class="contact-form-container">
+
+
+                <form
+                    class="contact-form"
+                    method="post"
+                    action="/contact"
+                >
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn"
+                    >
+                        Send Message
+                    </button>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
